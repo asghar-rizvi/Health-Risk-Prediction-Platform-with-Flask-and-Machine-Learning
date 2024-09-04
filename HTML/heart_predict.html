@@ -1,0 +1,155 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Models</title>
+
+    <link rel="stylesheet" href="../static/heart_disease.css" />
+    <link rel="stylesheet" href="../static/base.css" />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css"
+      integrity="sha512-Kc323vGBEqzTmouAECnVceyQqyqdsSiqLQISBL29aUW4U/M7pSPA/gEUZQqv1cwx4OnYxTxve5UMg5GT6L4JJg=="
+      crossorigin="anonymous"
+      referrerpolicy="no-referrer"
+    />
+  </head>
+  <body>
+    <div class="nav">
+      <div class="nav-container">
+        <div class="nav-container-left">
+          <a class="headings-main" href="{{ url_for('home') }}">Home Page</a>
+          <a class="headings-main" href="{{ url_for('model_page') }}">Models</a>
+          <a class="headings-main" href="{{ url_for('about_us') }}">About Us</a>
+
+        </div>
+        <div class="nav-container-right">
+          <a href="{{ url_for('profile_page') }}"><i class="fa-solid fa-user profile" style="color: #74C0FC;"></i></a>
+
+          <div class="dropdown">
+            <button class="dropbtn">Doctor Predictor</button>
+            <div class="dropdown-content">
+              <a href="{{ url_for('heart_predict_page') }}">Heart Attack</a>
+              <a href="{{ url_for('kidney_page') }}">Kidney Disease</a>
+              <a href="{{ url_for('liver_page') }}">Liver Disease</a>
+              <a href="{{ url_for('diabetes_page') }}">Diabetes</a>
+          </div>
+          
+        </div>
+        </div>
+      </div>
+    </div>
+    <form action="#">
+    <div class="body-container">
+        
+            <div class="body-container2">
+              <h1 class="heading">heart attack prediction model</h1>
+                <div class="body-left">
+                    <label for="age">age</label>
+                    <input type="text" placeholder="Enter Your Age" id="age" name="age">
+
+                    <label for="sex">Gender</label>
+                    <select name="Gender" id="sex" name="sex" required>
+                        <option value="Male">Male</option>
+                        <option value="Female">Female</option>
+                        <option value="Other">Other</option>
+                    </select>
+
+                    <label for="chestpain">chestpain</label>
+                    <select name="chestpain" id="chestpain" name="chestpain">
+                        <option value="0">Angina</option>
+                        <option value="1">Musculoskeletal Pain</option>
+                        <option value="2">Gastroesophageal Reflux Disease </option>
+                        <option value="3">Pleuritic Pain</option>
+                    </select>
+
+                    <label for="bloodpressure">Fasting blood sugar</label>
+                    <input type="text" placeholder="Enter Your bloodpressure" id="bloodpressure" name="bloodpressure">
+                    
+
+
+
+                    <label for="cholestoral">cholestoral</label>
+                    <input type="text" placeholder="Enter Your cholestoral" id="cholestoral" name="cholestoral">
+
+                    <label for="bloodsugar">bloodsugar</label>
+                    <input type="text" placeholder="Enter Your bloodsugar" id="bloodsugar" name="bloodsugar">
+
+                </div>
+
+                <div class="body-right">
+
+                    <label for="electrocardiographic">electrocardiographic</label>
+                    <select name="electrocardiographic" id="electrocardiographic" name="electrocardiographic">
+                        <option value="0"> Normal ECG</option>
+                        <option value="1">ST-T wave abnormality</option>
+                        <option value="2">Left ventricular hypertrophy </option>
+                    </select>
+
+                    <label for="heartrate">maximum heart rate achieved</label>
+                     <input type="text" placeholder="Enter Your heartrate" id="heartrate" name="heartrate">
+
+                    <label for="slope">Slope of the Peak Exercise ST Segment</label>
+                    <!-- <input type="text" placeholder="Enter Your slope" id="slope" name="slope"> -->
+                    <select name="slope" id="slope" name="slope">
+                      <option value="0">Zero</option>
+                      <option value="1">One</option>
+                      <option value="2">Two </option>
+                  </select>
+
+                    <label for="ca">Number of Major Vessels (0-3) Colored by Fluoroscopy</label>
+                    <select name="ca" id="ca" name="ca">
+                      <option value="0">Zero</option>
+                      <option value="1">One</option>
+                      <option value="2">Two </option>
+                      <option value="3">Three</option>
+                  </select>
+
+
+                    <label for="thal">thallium stress test</label>
+                    <!-- <input type="text" placeholder="Enter Your thal" id="thal" name="thal"> -->
+                    <select name="thal" id="thal" name="thal">
+                      <option value="0">Zero</option>
+                      <option value="1">One</option>
+                      <option value="2">Two </option>
+                      <option value="3">Three</option>
+                  </select>
+
+                    <button class="btn-predict" id="predict">predict</button>
+
+                    <div class="result">
+                        <div class="result-cont">
+                            <p class="fade-out"></p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+    </form>
+
+
+    <div class="footer">
+      <div class="footer-container">
+          <div class="footer-heading">
+              <h1>Asghar Qamber Rizvi</h1>
+          </div>
+          <div class="footer-icons">
+              <a href="https://linkedin.com/in/asghar-qamber-rizvi-2ba8472b5" target="_blank"><i class="fa-brands fa-linkedin-in icons" style="color: #ffffff;"></i></a>
+              <a href="https://github.com/asghar-rizvi" target="_blank"><i class="fa-brands fa-github icons" style="color: #ffffff;"></i></a>
+              <i class="fa-brands fa-instagram icons" style="color: #ffffff;"></i>
+              <i class="fa-brands fa-google icons" style="color: #fafcff;"></i>
+              
+          </div>
+          <div class="footer-para">
+              <p>Passionate data scientist with expertise in machine learning, data analysis, and web integration</p>
+              <p>Committed to developing innovative solutions that empower users and enhance healthcare outcomes</p>
+              <p>Continuously striving to bridge the gap between technology and real-world applications</p>
+          </div>
+      </div>
+  </div>
+  <script src="{{ url_for('static', filename='javascript/heart.js') }}"></script>
+
+  </body>
+</html>

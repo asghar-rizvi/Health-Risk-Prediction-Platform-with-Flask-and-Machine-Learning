@@ -1,0 +1,41 @@
+.body-container{
+    margin-left: 80px;
+    height: 70vh;
+    width: 90%;
+    background-color: #39ace7;
+    margin-top: 8%;
+}
+.body-container2{
+    height: 100%;
+    border: 2px solid white;
+    display: flex;
+}
+/* .body-left{
+    border-right: 3px solid white;
+    height: 100%;
+    width: 50%;;
+    background: url("{{ url_for('static', filename='images/bg/aboutus.jpg') }}");
+    background-size: cover;
+    opacity: 0.7;
+} */
+.heading{
+    text-align: center;
+    text-transform: uppercase;
+    text-decoration: underline;
+    font-size: 50px;
+    margin: 10px 0px;
+    color: #192428;
+}
+.body-right{
+    height: 100%;
+    width: 50%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+.para{
+    text-align: center;
+    color: 	#414c50;
+    font-weight: 600px;
+    font-size: 20px;
+}

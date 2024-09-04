@@ -1,0 +1,192 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Models</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='kidney.css') }}">
+    <link rel="stylesheet" href="{{ url_for('static', filename='base.css') }}">
+
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css"
+      integrity="sha512-Kc323vGBEqzTmouAECnVceyQqyqdsSiqLQISBL29aUW4U/M7pSPA/gEUZQqv1cwx4OnYxTxve5UMg5GT6L4JJg=="
+      crossorigin="anonymous"
+      referrerpolicy="no-referrer"
+    />
+  </head>
+  <body style="height: 200vh">
+    <div class="nav">
+      <div class="nav-container">
+        <div class="nav-container-left">
+          <a class="headings-main" href="{{ url_for('home') }}">Home Page</a>
+          <a class="headings-main" href="{{ url_for('model_page') }}">Models</a>
+          <a class="headings-main" href="{{ url_for('about_us') }}">About Us</a>
+
+        </div>
+        <div class="nav-container-right">
+          <a href="{{ url_for('profile_page') }}"><i class="fa-solid fa-user profile" style="color: #74C0FC;"></i></a>
+
+          <div class="dropdown">
+            <button class="dropbtn">Doctor Predictor</button>
+            <div class="dropdown-content">
+              <a href="{{ url_for('heart_predict_page') }}">Heart Attack</a>
+              <a href="{{ url_for('kidney_page') }}">Kidney Disease</a>
+              <a href="{{ url_for('liver_page') }}">Liver Disease</a>
+              <a href="{{ url_for('diabetes_page') }}">Diabetes</a>
+          </div>
+          
+          </div>
+        </div>
+      </div>
+    </div>
+    <form >
+      <div class="body-container">
+        <div class="body-container2">
+          <h1 class="heading">Kidney Disease Prediction Model</h1>
+
+          <div class="body-one">
+            <label for="age">Age</label>
+            <input type="text" placeholder="Enter Your Age" id="age" name="age" required>
+        
+            <label for="bp">Blood Pressure</label>
+            <input type="text" placeholder="Enter Your Blood Pressure" id="bp" name="bp" required>
+        
+            <label for="sg">Specific Gravity</label>
+            <input type="text" placeholder="Enter Your Specific Gravity" id="sg" name="sg" required>
+        
+            <label for="al">Albumin</label>
+            <input type="text" placeholder="Enter Your Albumin Level" id="al" name="al" required>
+        
+            <label for="su">Sugar</label>
+            <input type="text" placeholder="Enter Your Sugar Level" id="su" name="su" required>
+        
+            <label for="rbc">Red Blood Cells</label>
+            <select name="rbc" id="rbc" required>
+                <option value="1">Normal</option>
+                <option value="0">Abnormal</option>
+            </select>
+        
+            <label for="pc">Pus Cell</label>
+            <select name="pc" id="pc" required>
+                <option value="1">Normal</option>
+                <option value="0">Abnormal</option>
+            </select>
+        
+            <label for="pcc">Pus Cell Clumps</label>
+            <select name="pcc" id="pcc" required>
+                <option value="1">Present</option>
+                <option value="0">Not Present</option>
+            </select>
+        </div>
+        
+        <div class="body-two">
+            <label for="ba">Bacteria</label>
+            <select name="ba" id="ba" required>
+                <option value="1">Present</option>
+                <option value="0">Not Present</option>
+            </select>
+        
+            <label for="bgr">Blood Glucose Random</label>
+            <input type="text" placeholder="Enter Your Blood Glucose Random" id="bgr" name="bgr" required>
+        
+            <label for="bu">Blood Urea</label>
+            <input type="text" placeholder="Enter Your Blood Urea Level" id="bu" name="bu" required>
+        
+            <label for="sc">Serum Creatinine</label>
+            <input type="text" placeholder="Enter Your Serum Creatinine Level" id="sc" name="sc" required>
+        
+            <label for="sod">Sodium</label>
+            <input type="text" placeholder="Enter Your Sodium Level" id="sod" name="sod" required>
+        
+            <label for="pot">Potassium</label>
+            <input type="text" placeholder="Enter Your Potassium Level" id="pot" name="pot" required>
+        
+            <label for="hemo">Hemoglobin</label>
+            <input type="text" placeholder="Enter Your Hemoglobin Level" id="hemo" name="hemo" required>
+        
+            <label for="pcv">Packed Cell Volume</label>
+            <input type="text" placeholder="Enter Your Packed Cell Volume" id="pcv" name="pcv" required>
+        
+            <button class="btn-predict"  id="predict" required>predict</button>
+        
+            <div class="result">
+                <div class="result-cont">
+                    <p class="fade-out"></p>
+                </div>
+            </div>
+        </div>
+        
+        <div class="body-three">
+            <label for="wc">White Blood Cell Count</label>
+            <input type="text" placeholder="Enter Your White Blood Cell Count" id="wc" name="wc" required>
+        
+            <label for="rc">Red Blood Cell Count</label>
+            <input type="text" placeholder="Enter Your Red Blood Cell Count" id="rc" name="rc" required>
+        
+            <label for="htn">Hypertension</label>
+            <select name="htn" id="htn" required>
+                <option value="1">Yes</option>
+                <option value="0">No</option>
+            </select>
+        
+            <label for="dm">Diabetes Mellitus</label>
+            <select name="dm" id="dm" required>
+                <option value="1">Yes</option>
+                <option value="0">No</option>
+            </select>
+        
+            <label for="cad">Coronary Artery Disease</label>
+            <select name="cad" id="cad" required>
+                <option value="1">Yes</option>
+                <option value="0">No</option>
+            </select>
+        
+            <label for="appet">Appetite</label>
+            <select name="appet" id="appet" required>
+                <option value="1">Good</option>
+                <option value="0">Poor</option>
+            </select>
+        
+            <label for="pe">Pedal Edema</label>
+            <select name="pe" id="pe" required>
+                <option value="1">Yes</option>
+                <option value="0">No</option>
+            </select>
+        
+            <label for="ane">Anemia</label>
+            <select name="ane" id="ane" required>
+                <option value="1">Yes</option>
+                <option value="0">No</option>
+            </select>
+        </div>
+        
+        </div>
+      </div>
+    </form>
+
+    <div class="footer">
+      <div class="footer-container">
+          <div class="footer-heading">
+              <h1>Asghar Qamber Rizvi</h1>
+          </div>
+          <div class="footer-icons">
+              <a href="https://linkedin.com/in/asghar-qamber-rizvi-2ba8472b5" target="_blank"><i class="fa-brands fa-linkedin-in icons" style="color: #ffffff;"></i></a>
+              <a href="https://github.com/asghar-rizvi" target="_blank"><i class="fa-brands fa-github icons" style="color: #ffffff;"></i></a>
+              <i class="fa-brands fa-instagram icons" style="color: #ffffff;"></i>
+              <i class="fa-brands fa-google icons" style="color: #fafcff;"></i>
+              
+          </div>
+          <div class="footer-para">
+              <p>Passionate data scientist with expertise in machine learning, data analysis, and web integration</p>
+              <p>Committed to developing innovative solutions that empower users and enhance healthcare outcomes</p>
+              <p>Continuously striving to bridge the gap between technology and real-world applications</p>
+          </div>
+      </div>
+  </div>
+
+  <script src="{{ url_for('static', filename='javascript/kindey.js') }}"></script>
+
+  </body>
+
+</html>

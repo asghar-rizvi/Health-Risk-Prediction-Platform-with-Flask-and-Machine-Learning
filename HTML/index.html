@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>HomePage</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='homepage.css') }}">
+    <link rel="stylesheet" href="{{ url_for('static', filename='base.css') }}">
+
+
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css"integrity="sha512-Kc323vGBEqzTmouAECnVceyQqyqdsSiqLQISBL29aUW4U/M7pSPA/gEUZQqv1cwx4OnYxTxve5UMg5GT6L4JJg==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+
+</head>
+<body>
+    <div class="nav">
+        <div class="nav-container">
+            <div class="nav-container-left">
+                <a class="headings-main" href="{{ url_for('home') }}">Home Page</a>
+                <a class="headings-main" href="{{ url_for('model_page') }}">Models</a>
+                <a class="headings-main" href="{{ url_for('about_us') }}">About Us</a>
+
+            </div>
+            <div class="nav-container-right">
+                <a href="{{ url_for('profile_page') }}"><i class="fa-solid fa-user profile" style="color: #74C0FC;"></i></a>
+                <div class="dropdown">
+                    <button class="dropbtn">Doctor Predictor</button>
+                    <div class="dropdown-content">
+                        <a href="{{ url_for('heart_predict_page') }}">Heart Attack</a>
+                        <a href="{{ url_for('kidney_page') }}">Kidney Disease</a>
+                        <a href="{{ url_for('liver_page') }}">Liver Disease</a>
+                        <a href="{{ url_for('diabetes_page') }}">Diabetes</a>
+                    </div>
+                    
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="main-heading">
+        <div class="heading">
+            <h1>anually number of people dying</h1>
+        </div>
+    </div>
+    <div class="body-container">
+        <div class="body2">
+            <div class="box">
+                <p class="box-heading"><i class="fa-solid fa-heart-pulse" style="color: #000000;"></i></p>
+                <p class="box-para">18,000,000</p>
+            </div>
+            <div class="box">
+                <p class="box-heading"><img src="{{ url_for('static', filename='images/diabetes-test.png') }}" alt="Diabetes Test">
+                </p>
+                <p class="box-para">1,600,000</p>
+            </div>
+            <div class="box">
+                <p class="box-heading"><img src="{{ url_for('static', filename='images/kidney.png') }}" alt="Kidney">
+                </p>
+                <p class="box-para">1,200,000</p>
+            </div>
+            <div class="box">
+                <p class="box-heading"><img src="{{ url_for('static', filename='images/liver.png') }}" alt="Liver">
+                </p>
+                <p class="box-para">2,000,000</p>
+            </div>
+            <div class="box">
+                <p class="box-heading"><img src="{{ url_for('static', filename='images/pulmonary.png') }}" alt="Pulmonary">
+                </p>
+                <p class="box-para">1,800,000</p>
+            </div>
+            <div class="box">
+                <p class="box-heading"><img src="{{ url_for('static', filename='images/puzzle.png') }}" alt="Puzzle">
+                </p>
+                <p class="box-para">300,000</p>
+            </div>
+           
+        </div>
+    </div>
+
+
+    <div class="footer">
+        <div class="footer-container">
+            <div class="footer-heading">
+                <h1>Asghar Qamber Rizvi</h1>
+            </div>
+            <div class="footer-icons">
+                <a href="https://linkedin.com/in/asghar-qamber-rizvi-2ba8472b5" target="_blank"><i class="fa-brands fa-linkedin-in icons" style="color: #ffffff;"></i></a>
+                <a href="https://github.com/asghar-rizvi" target="_blank"><i class="fa-brands fa-github icons" style="color: #ffffff;"></i></a>
+                <i class="fa-brands fa-instagram icons" style="color: #ffffff;"></i>
+                <i class="fa-brands fa-google icons" style="color: #fafcff;"></i>
+                
+            </div>
+            <div class="footer-para">
+                <p>Passionate data scientist with expertise in machine learning, data analysis, and web integration</p>
+                <p>Committed to developing innovative solutions that empower users and enhance healthcare outcomes</p>
+                <p>Continuously striving to bridge the gap between technology and real-world applications</p>
+            </div>
+        </div>
+    </div>
+</body>
+</html>

@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Models</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='heart_disease.css') }}">
+    <link rel="stylesheet" href="{{ url_for('static', filename='base.css') }}">
+
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css"
+      integrity="sha512-Kc323vGBEqzTmouAECnVceyQqyqdsSiqLQISBL29aUW4U/M7pSPA/gEUZQqv1cwx4OnYxTxve5UMg5GT6L4JJg=="
+      crossorigin="anonymous"
+      referrerpolicy="no-referrer"
+    />
+  </head>
+  <body>
+    <div class="nav">
+      <div class="nav-container">
+        <div class="nav-container-left">
+          <a class="headings-main" href="{{ url_for('home') }}">Home Page</a>
+          <a class="headings-main" href="{{ url_for('model_page') }}">Models</a>
+          <a class="headings-main" href="{{ url_for('about_us') }}">About Us</a>
+
+        </div>
+        <div class="nav-container-right">
+          <a href="{{ url_for('profile_page') }}"><i class="fa-solid fa-user profile" style="color: #74C0FC;"></i></a>
+
+          <div class="dropdown">
+            <button class="dropbtn">Doctor Predictor</button>
+            <div class="dropdown-content">
+              <a href="{{ url_for('heart_predict_page') }}">Heart Attack</a>
+              <a href="{{ url_for('kidney_page') }}">Kidney Disease</a>
+              <a href="{{ url_for('liver_page') }}">Liver Disease</a>
+              <a href="{{ url_for('diabetes_page') }}">Diabetes</a>
+          </div>
+          
+        </div>
+        </div>
+      </div>
+    </div>
+    <form>
+    <div class="body-container">
+        
+            <div class="body-container2">
+              <h1 class="heading">Liver Disease prediction model</h1>
+              <div class="body-left">
+                <label for="age">Age</label>
+                <input type="text" placeholder="Enter Your Age" id="age" name="Age" required>
+            
+                <label for="gender">Gender</label>
+                <select name="Gender" id="gender" name="gender" required>
+                    <option value="Male">Male</option>
+                    <option value="Female">Female</option>
+                    <option value="Other">Other</option>
+                </select>
+            
+                <label for="total_proteins">Total Proteins</label>
+                <input type="text" placeholder="Enter Your Total Proteins Level" id="total_proteins" name="Total_Protiens" required>
+            
+                <label for="albumin">Albumin</label>
+                <input type="text" placeholder="Enter Your Albumin Level" id="albumin" name="Albumin" required>
+            </div>
+            
+            <div class="body-right">
+                <label for="alamine_aminotransferase">Alamine Aminotransferase</label>
+                <input type="text" placeholder="Enter Your Alamine Aminotransferase Level" id="alamine_aminotransferase" name="Alamine_Aminotransferase" required>
+            
+                <label for="aspartate_aminotransferase">Aspartate Aminotransferase</label>
+                <input type="text" placeholder="Enter Your Aspartate Aminotransferase Level" id="aspartate_aminotransferase" name="Aspartate_Aminotransferase" required>
+            
+                <label for="albumin_and_globulin_ratio">Albumin and Globulin Ratio</label>
+                <input type="text" placeholder="Enter Your Albumin and Globulin Ratio" id="albumin_and_globulin_ratio" name="Albumin_and_Globulin_Ratio" required>
+                <button class="btn-predict" id="predict">predict</button>
+
+                    <div class="result">
+                        <div class="result-cont">
+                            <p class="fade-out"></p>
+                        </div>
+                    </div>
+            </div>
+            
+            </div>
+
+        </div>
+    </form>
+
+
+    <div class="footer">
+      <div class="footer-container">
+          <div class="footer-heading">
+              <h1>Asghar Qamber Rizvi</h1>
+          </div>
+          <div class="footer-icons">
+              <a href="https://linkedin.com/in/asghar-qamber-rizvi-2ba8472b5" target="_blank"><i class="fa-brands fa-linkedin-in icons" style="color: #ffffff;"></i></a>
+              <a href="https://github.com/asghar-rizvi" target="_blank"><i class="fa-brands fa-github icons" style="color: #ffffff;"></i></a>
+              <i class="fa-brands fa-instagram icons" style="color: #ffffff;"></i>
+              <i class="fa-brands fa-google icons" style="color: #fafcff;"></i>
+              
+          </div>
+          <div class="footer-para">
+              <p>Passionate data scientist with expertise in machine learning, data analysis, and web integration</p>
+              <p>Committed to developing innovative solutions that empower users and enhance healthcare outcomes</p>
+              <p>Continuously striving to bridge the gap between technology and real-world applications</p>
+          </div>
+      </div>
+  </div>
+  <script src="{{ url_for('static', filename='javascript/liver.js') }}"></script>
+  </body>
+</html>

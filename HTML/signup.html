@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>SIGN UP PAGE</title>
+    <link rel="stylesheet" href="../static/login.css">
+    
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css" integrity="sha512-Kc323vGBEqzTmouAECnVceyQqyqdsSiqLQISBL29aUW4U/M7pSPA/gEUZQqv1cwx4OnYxTxve5UMg5GT6L4JJg==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+
+</head>
+<body>
+
+
+    <div class="heading">
+        <div class="message">
+            {% with messages = get_flashed_messages(with_categories=True) %}
+                {% if messages %}
+                    {% for category, message in messages %}
+                        <div class="message">
+                            <p class="fade-in">{{ message }}</p>    
+                        </div>
+                    {% endfor %}
+                {% endif %}
+            {% endwith %}
+        </div>
+    </div>
+    <div class="body">
+    <div class="container" id="container">
+
+        <div class="form-container container-signup">
+            <form action="/" method="POST">
+                <h1>Sign Up</h1>
+                <div class="social">
+                    <a href="#"><i class="fa-brands fa-google"></i></a>
+                    <a href="#"><i class="fa-brands fa-facebook-f"></i></a>
+                    <a href="#"><i class="fa-brands fa-apple"></i></a>
+                </div>
+                <span>or enter your email for registration</span>
+                <input type="text" placeholder="Enter Your Name" name="name" id="name" required>
+                <input type="email" placeholder="Enter Your Email"  name="email" id="email" required>
+                <input type="password" placeholder="Enter Your Password" name="password" id="password" required>
+                <button>Sign Up</button>
+            </form>
+        </div>
+
+        <div class="form-container container-signin">
+            <form action="/sign_in" method="POST">
+                <h1>Sign In</h1>
+                <div class="social">
+                    <a href="#"><i class="fa-brands fa-google"></i></a>
+                    <a href=""><i class="fa-brands fa-facebook-f"></i></a>
+                    <a href=""><i class="fa-brands fa-apple"></i></a>
+                </div>
+                <span>or enter your email</span>
+                <input type="email" placeholder="Enter Your Email" name="email" id="email">
+                <input type="password" placeholder="Enter Your Password" name="password" id="password">
+                <button>Sign In</button>
+            </form>
+        </div>
+
+        <div class="overlay-container">
+            <div class="overlay">
+                <div class="overlay-panel left">
+                    <h1 class="overlay-text">Welcome Back!</h1>
+                    <p class="overlay-text">We're excited to have you return. Sign in to access our advanced prediction models, where you can quickly and accurately assess your health. Let’s continue to empower your health journey with insights tailored just for you.</p>
+                    <button class="ghost" id="SignIn">Sign In</button>
+                </div>
+
+                <div class="overlay-panel right">
+
+                    <h1 class="overlay-text" >Join Our Community</h1>
+                    <p class="overlay-text">Become a part of our healthcare family by signing up today. Take charge of your health with our support every step of the way. We're committed to helping you achieve your wellness goals and ensuring you receive the care you deserve.</p>
+                    <button class="ghost" id="SignUp">Sign Up</button>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>  
+
+    <script src="../static/javascript/login.js"></script>
+</body>
+</html>
