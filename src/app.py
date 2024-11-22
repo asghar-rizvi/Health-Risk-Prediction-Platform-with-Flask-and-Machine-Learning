@@ -1,8 +1,9 @@
 from flask import Flask, request, jsonify,render_template, redirect, url_for, flash, session
-from models import kidney_util, liver_util,heart_util, diabetes_util
+from models import kidney_util, liver_util,heart_util, diabetes_util, CNN
 from data import make_database as database
 import bcrypt
 import re
+import os
 
 app = Flask(__name__,template_folder='../HTML',static_folder='../static')
 
@@ -144,6 +145,9 @@ def liver_page():
 @app.route('/diabetes')
 def diabetes_page():
     return render_template('diabetes.html')
+@app.route('/penumonia')
+def penumonia_page():
+    return render_template('pneominia.html')
 
 @app.route('/signup')
 def signup_page():
@@ -228,27 +232,34 @@ def predict_heart_disease():
     return response
 
 
-@app.route('/api/predict_diabetes', methods=['GET', 'POST'])
-def predict_diabetes():
-    data = request.form
-    gender_mapping = {'Male': 1, 'Female': 0}
-    # smoking_mapping = {'ever': 'ever', 'former': 'former', 'never': 'never', 'not current': 'not current'}
+@app.route('/api/predict_pneumonia', methods=['POST'])
+def predict_pneumonia():
 
-    prediction = diabetes_util.predict_diabetes(
-        gender=gender_mapping[data['gender']],
-        age=float(data['age']),
-        hypertension=int(data['hypertension']),
-        heart_disease=int(data['heart_disease']),
-        bmi=float(data['bmi']),
-        HbA1c_level=float(data['HbA1c_level']),
-        blood_glucose_level=float(data['blood_glucose_level']),
-        smoking_history=(data['smoking_history'])
-    )
+    if 'image' not in request.files:
+        return jsonify({"error": "No file provided"}), 400
 
-    prediction_int = int(prediction[0])
-    response = jsonify({'prediction': prediction_int})
-    response.headers.add('Access-Control-Allow-Origin', '*')  # Allow CORS for your dev server
-    return response
+    image = request.files['image']
+    if image.filename == '':
+        return jsonify({"error": "No selected file"}), 400
+
+    # Define the directory and file path
+    temp_dir = os.path.join(os.getcwd(), "images")
+    os.makedirs(temp_dir, exist_ok=True)  # Create directory if it doesn't exist
+    temp_path = os.path.join(temp_dir, image.filename)
+
+    image.save(temp_path)
+
+    try:
+        result = CNN.predict_model(temp_path)
+
+        # Clean up the temp file
+        os.remove(temp_path)
+        return jsonify({'prediction': result})
+
+    except Exception as e:
+        if os.path.exists(temp_path):
+            os.remove(temp_path)
+        return jsonify({"error": str(e)}), 500
 
 
 
@@ -258,4 +269,5 @@ if __name__ == '__main__':
     liver_util.load_data()
     heart_util.load_data()
     diabetes_util.load_data()
+    CNN.load_model_cnn()
     app.run(debug=True)
